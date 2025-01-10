@@ -3,50 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Contact form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  Contact Us
-
-  First Name
-  This field is required
-
-  Last Name
-  This field is required
-
-  Email Address
-  Please enter a valid email address
-  This field is required
-
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
-
-  Message
-  This field is required
-
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
-
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
+<div class="background">
+<div class="container">
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    <header>
+      <h1 class="title">Contact Us</h1>
+    </header>
+    <main>
+    <form action="" novalidate autocomplete="on">
+      <div class="wrapper">
+        <label for="first-name">First Name  <span class="required">*</span></label>
+        <input type="text" id="first-name" >
+        <div id="first-name-error" class="error hide">This field is required</div>
+        <label for="last-name">Last Name  <span class="required">*</span></label>
+        <input type="text" id="last-name" >
+        <div id="last-name-error" class="error hide">This field is required</div>
+        <label for="email" class="email-label">Email Address  <span class="required">*</span></label>
+        <input type="email" id="email" >
+        <div class="error hide" id="invalid-email-error">Please enter a valid email address</div>
+        <div id="email-error" class="error hide">This field is required</div>
+      </div>
+      <fieldset>
+        <legend>Query Type<span class="required">  *</span></legend>
+        <div class="big-radio-wrap">
+          <div class="wrap" id="wrap1">
+            <input id=radio1 type="radio" class="" name="radio" data-value="1">
+            <label for="radio1" class="radio-label">
+              <svg id="radio-icon1" class="radio-svg hide" xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="none" viewBox="0 0 20 21">
+                <path class="radiomark" fill="#0C7D69" d="M10 .75a9.75 9.75 0 1 0 9.75 9.75A9.76 9.76 0 0 0 10 .75Zm0 18a8.25 8.25 0 1 1 8.25-8.25A8.26 8.26 0 0 1 10 18.75Zm5.25-8.25a5.25 5.25 0 1 1-10.499 0 5.25 5.25 0 0 1 10.499 0Z"/>
+              </svg>
+              <span class="label-text">General Enquiry</span>
+            </label>
+          </div>
+          <div class="wrap" id="wrap2">
+            <input id=radio2 type="radio" class="" name="radio" data-value="2">
+            <label for="radio2" class="radio-label">
+              <svg id="radio-icon2" class="radio-svg hide"xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="none" viewBox="0 0 20 21">
+                <path class="radiomark nocheck" fill="#0C7D69" d="M10 .75a9.75 9.75 0 1 0 9.75 9.75A9.76 9.76 0 0 0 10 .75Zm0 18a8.25 8.25 0 1 1 8.25-8.25A8.26 8.26 0 0 1 10 18.75Zm5.25-8.25a5.25 5.25 0 1 1-10.499 0 5.25 5.25 0 0 1 10.499 0Z"/>
+              </svg>
+              <span class="label-text">Support Request</span>
+            </label>
+          </div>
+        </div>
+        <div class="error hide" id="radio-error">Please select a query type</div>
+      </fieldset>
+      <label for="message">Message  <span class="required">*</span></label>
+      <textarea id="message"></textarea>
+      <div id="message-error" class="error hide">This field is required</div>
+      <div class="checkbox-wrap">
+        <input id=checkbox type="checkbox" class="removed">
+        <label for="checkbox" class="checkbox-label">
+          <svg id="checkbox-icon" class="checkbox-svg unchecked" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 18 18">
+            <path class="checkmark unchecked" id="checkmark" fill="#0C7D69" d="M16.5 0h-15A1.5 1.5 0 0 0 0 1.5v15A1.5 1.5 0 0 0 1.5 18h15a1.5 1.5 0 0 0 1.5-1.5v-15A1.5 1.5 0 0 0 16.5 0Zm-3.22 7.28-5.25 5.25a.748.748 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l1.72 1.72 4.72-4.72a.751.751 0 0 1 1.06 1.06Z"/>
+          </svg>
+          <span class="label-text">I consent to being contacted by the team <span class="required">*</span></span>
+        </label>
+        <div class="checkbox-error error hide" id="checkbox-error">To submit this form, please consent to being contacted</div>
+      </div>
+      <button type="submit" class="submit">Submit</button>
+    </form>
+    </main>
+  
+    <div class="toast">
+      <div class="toast-wrap">
+        <img src="assets\images\icon-success-check.svg">
+        <h3>Message Sent!</h3>
+      </div>
+      <p class="toast-text">Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
+  
+</div>
+</div>
 </body>
 </html>
